@@ -28,6 +28,16 @@ public class Lesson {
                 System.out.println(stuListBox.getSelectedItem());
             }
         });
+        JButton back = new JButton("BACK");
+        back.setBounds(100,600,100,70);
+        back.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                home.professorList[home.professorCount].menu();
+                profFrame.dispose();
+            }
+        });
+        profFrame.add(back);
         studentPanel.add(stuListBox);
 
         JPanel examPanel=new JPanel();

@@ -29,14 +29,15 @@ public class Professor {
         profPanel.add(new JLabel(signUpInfo.educationalID));
         JButton createButton=new JButton("create new Lesson");
         createButton.setBounds(100,500,150,70);
-        JButton newLesson = new JButton("lesson name");
-        newLesson.setBounds(600,100,150,150);
+        JButton newLesson = new JButton();
+        newLesson.setBounds(500,100,150,150);
         createButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 lesson=new Lesson();
                 lesson.name=JOptionPane.showInputDialog(null,"please enter the name of lesson: ","Name",JOptionPane.PLAIN_MESSAGE);
                 frame.remove(profPanel);
+                newLesson.setText(lesson.name);
                 frame.add(newLesson);
                 newLesson.addActionListener(new ActionListener() {
                     @Override
