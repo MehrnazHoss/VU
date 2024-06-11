@@ -2,7 +2,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Arrays;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 public class Home {
     public JFrame frame;
     public JPanel panel;
@@ -19,6 +21,13 @@ public class Home {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(1600,900);
         frame.setLayout(null);
+        JLabel time=new JLabel();
+        time.setBounds(700,100,200,50);
+        LocalDateTime current=LocalDateTime.now();
+        DateTimeFormatter formatter=DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+        String formatterTime=current.format(formatter);
+        time.setText(formatterTime);
+        frame.add(time);
         panel.setBounds(600,300,350,200);
         panel.setLayout(new GridLayout(2,1));
         JButton loginButton=new JButton("Login");

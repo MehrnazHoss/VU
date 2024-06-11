@@ -2,14 +2,14 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Arrays;
+
 
 public class SignUp {
     public JFrame frame=new JFrame();
     public JPanel panel=new JPanel();
     public String firstName;
     public String lastName;
-    public static String[] fullName;
+    public String fullName;
     public static int i = 0;
     private String userName;
     private String fieldOfStudy;
@@ -31,10 +31,10 @@ public class SignUp {
             sw = 0;
         }
         if (isValidInput1(firstName)) {
-                this.firstName = firstName;
-            } else {
-                JOptionPane.showMessageDialog(null, "          firstname " + firstName + " is not valid!!", "SignUp Failed!!", JOptionPane.PLAIN_MESSAGE);
-                sw = 0;
+            this.firstName = firstName;
+        } else {
+            JOptionPane.showMessageDialog(null, "          firstname " + firstName + " is not valid!!", "SignUp Failed!!", JOptionPane.PLAIN_MESSAGE);
+            sw = 0;
         }
         if (isValidInput1(lastName)) {
             this.lastName = lastName;
@@ -86,11 +86,10 @@ public class SignUp {
         }
         if (sw == 1) {
             if(userRole.equals("student")){
+                fullName = firstName+" "+lastName;
                 home.studentList[home.studentCount]=new Student(this,home);
                 home.studentCount++;
                 home.studentList[home.studentCount-1].menu();
-                fullName[i] = firstName+" "+lastName;
-                i++;
             }
             else if(userRole.equals("professor")){
                 home.professorList[home.professorCount]=new Professor(this,home);

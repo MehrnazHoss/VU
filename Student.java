@@ -7,6 +7,7 @@ public class Student {
     public SignUp signUpInfo;
     public JFrame frame=new JFrame();
     public Lesson[] lessonsList=new Lesson[12];
+    public int lessonCount;
     public JPanel lessonPanel;
     public JPanel taskPanel=new JPanel();
     public JPanel notifPanel=new JPanel();
@@ -31,15 +32,16 @@ public class Student {
         for(int i=0;i<12;i++){
             final int j=i;
             JButton lessonButton=new JButton();
-            //   if(lessonsList[i]==null)lessonButton.setVisible(false);
-            //    else{
+            if(lessonsList[i]==null)lessonButton.setVisible(false);
+            else{
+            lessonButton.setText(lessonsList[i].name);
             lessonButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     lessonsList[j].stuLessonMenu();
                 }
             });
-            //   }
+            }
             lessonPanel.add(lessonButton);
         }
         JButton homeButton=new JButton("Home");
